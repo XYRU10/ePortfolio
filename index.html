@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xy's ePortfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!--backgroundmusic-->
+  <audio id="backgroundMusic" autoplay loop>
+    <source src="assets/audio/background-music.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Include Header -->
+  <header id="header"></header>
+
+  <!-- Include Sections -->
+  <main>
+    <section id="home"></section>
+    <section id="about"></section>
+    <section id="projects"></section>
+    <section id="contact"></section>
+  </main>
+
+  <!-- Include Footer -->
+  <footer id="footer"></footer>
+
+  <!-- Modal Structure -->
+  <div id="myModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg w-1/2">
+      <h3 id="modalTitle" class="text-2xl font-bold mb-4">Modal Title</h3>
+      <img id="modalImage" src="" alt="Project Image" class="w-full h-48 object-cover rounded-lg mb-4">
+      <p id="modalDescription" class="text-lg mb-4">This is the project description.</p>
+      <a id="githubLink" href="#" target="_blank" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-400 inline-block mb-4">View on GitHub</a>
+      <button id="closeModal" class="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700">Close</button>
+    </div>
+  </div>
+
+  <button id="pauseButton" class="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700">Pause Music</button>
+
+  <script>
+
+    // Get the audio element
+  const audio = document.getElementById('backgroundMusic');
+  const pauseButton = document.getElementById('pauseButton');
+
+  // Pause or play the music when the button is clicked
+  pauseButton.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      pauseButton.innerText = 'Pause Music';
+    } else {
+      audio.pause();
+      pauseButton.innerText = 'Play Music';
+    }
+  });
+    
+    // Get modal elements
+    const modal = document.getElementById('myModal');
+    const closeModal = document.getElementById('closeModal');
+
+    // Function to open the modal and display project details
+    function openModal(title, description, image, githubLink) {
+      console.log('Modal Opened'); // Add this line to check if the function is triggered
+      // Set the modal content
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalDescription').innerText = description;
+      document.getElementById('modalImage').src = image;
+      document.getElementById('githubLink').href = githubLink; // Set the GitHub link
+
+      // Show the modal
+      modal.classList.remove('hidden');
+    }
+
+    // Close the modal when the user clicks the close button
+    closeModal.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+
+    // Close the modal if the user clicks outside the modal content
+    window.addEventListener('click', (e) => {
+      if (e.target === modal || e.target === closeModal) {
+        modal.classList.add('hidden');
+      }
+    });
+  </script>
+  <script src="scripts.js"></script>
+</body>
+</html>
