@@ -1,0 +1,105 @@
+# Define characters
+define DA1 = Character("Diabolical Aberrant #1")  # The Quick Hooded Swordsman
+define DA2 = Character("Diabolical Aberrant #2")  # The Ham-Hammer Wielding Powerhouse
+define DA3 = Character("Diabolical Aberrant #3")  # The Scorching Sorcerer
+define P = Character("[player_name]")  # Player's input name
+
+
+# Prologue of the story
+label start:
+    # Input for player name
+    $ player_name = renpy.input("What is your name?")
+    $ player_name = player_name.strip()
+    if player_name == "":
+        $ player_name = "Hero"  # Default name if left blank
+
+    # Prologue narration
+    scene bg_battlefield with fade
+
+    narrator "The world is chaos around you. Steel clashes, fire blazes, and your breath comes in ragged gasps."
+    "A slash whistles through the air."
+    play sound "slash.wav"
+
+    narrator "You instinctively duck and twist just as a slashing attack streaks over your shoulder."
+
+    P "Ugh, th-that was clo-"
+
+    play sound "impact.wav"
+    narrator "A black lumpy mace, the size of two water buckets, bashes into your chest, sending you crashing twenty feet backward into a large wooden and steel-framed carriage—likely owned by some noble of this dukedom."
+
+    P "(Gritting your teeth, you struggle to stay on your feet.)"
+    narrator "A glowing, fiery figure walks toward you, raising a hand as a streak of scorching heat arcs in your direction."
+
+    play sound "fireball.wav"
+    narrator "The heat is oppressive. The odds are worse."
+
+    # Menu: First choice
+    menu:
+        "You're frozen with indecision. Who is the biggest threat?":
+            "The Quick Hooded Swordsman":
+                jump threat_narration
+
+            "The Ham-Hammer Wielding Powerhouse":
+                jump threat_narration
+
+            "The Scorching Sorcerer":
+                jump threat_narration
+
+
+# Threat choice response
+label threat_narration:
+    narrator "You may be right, but if you ignore the others, you'll just die in a different way."
+    narrator "Individually, any one of them would present an almost insurmountable challenge. Three of them working together just means your death will be a nightmare."
+    narrator "Your eyes dart from left to right as the three villains surround you."
+
+    # Menu: Second choice (Strategy)
+    menu:
+        "What's your strategy?":
+            "Find an opening to escape and regroup.":
+                jump strategy_escape
+
+            "Clench your weapon and go down fighting.":
+                jump strategy_fight  # <-- Add additional path content here
+
+            "They don't seem that bright. Maybe I can talk my way out of this.":
+                jump strategy_talk  # <-- Add additional path content here
+
+# Strategy choice: Escape
+label strategy_escape:
+    narrator "Finding a sliver of space between the scorching ray-blasting sorcerer and the other two, you leap forward."
+    narrator "You're almost through the gap..."
+    narrator "When you feel fingers wrap like steel bars around your ankle. You're launched into an abandoned merchant's stall, your body bouncing off crates and splintered wood."
+    P "(It's over... I-I realize it now... there just seems to be no way out of this.)"
+
+    jump defeat_narration
+
+# Strategy choice: Fight
+label strategy_fight:
+    narrator "You clench your weapon and charge forward..."
+    # <-- Add more fight-specific narrative here
+    jump defeat_narration
+
+# Strategy choice: Talk
+label strategy_talk:
+    narrator "You raise your hands in surrender, attempting to appeal to their egos..."
+    # <-- Add more conversation or negotiation narrative here
+    jump defeat_narration
+
+# Defeat narration
+label defeat_narration:
+    narrator "As the vultures circle, you raise your head and stare them down. You lack the strength to rise to your feet but refuse to look away in your final moments."
+    narrator "They move slowly. They're in no hurry."
+    P "(I wonder... do they view this as 'their mission,' or do they take some kind of perverse glee in toying with me?)"
+    P "(From what I know of the Seven Diabolical Aberrants, they seem to have mastered the art of mixing missions with pleasure...)"
+    narrator "In some twisted way, you're responsible for this. After all, it didn’t have to turn out this way."
+    narrator "You could have made different decisions. But you didn’t. And you trusted the wrong person..."
+
+    # Time skip choice
+    menu:
+        "Three years ago":
+            jump flashback_intro
+
+# Flashback introduction
+label flashback_intro:
+    narrator "Three years ago, your story truly began..."
+    return

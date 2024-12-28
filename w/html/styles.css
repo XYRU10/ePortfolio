@@ -1,0 +1,83 @@
+/* General Styles */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header */
+header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Links */
+header nav a {
+  transition: color 0.3s ease;
+}
+
+/* Section Titles */
+section h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Home Section */
+#home {
+  background: linear-gradient(to bottom, #2d3748, #4a5568);
+}
+
+#home img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#home img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+/* About Section */
+#about ul li {
+  margin-bottom: 8px;
+}
+
+/* Projects Section */
+#projects .grid div {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#projects .grid div:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+#projects .grid img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#projects .grid img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Contact Section */
+form input,
+form textarea {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #4a5568;
+  box-shadow: 0 0 4px rgba(74, 85, 104, 0.5);
+}
+
+form button {
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #2d3748;
+}
+
+/* Footer */
+footer {
+  font-size: 0.9rem;
+}

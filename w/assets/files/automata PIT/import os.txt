@@ -1,0 +1,8 @@
+import os
+# Create a file and write data
+with open("secure_file.txt", "w") as f:
+    f.write("Secure Data")
+# Grant perms
+os.system("icacls secure_file.txt /grant %username%:(R,W)")
+#verify PErms
+os.system("icacls secure_file.txt")
