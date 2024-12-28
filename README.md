@@ -34,3 +34,8 @@ Xyrujon Alfred M. Bandiala's E-portfolio
 - Email: [bandiala.xyrujon11@gmail.com](mailto: bandiala.xyrujon11@gmail.com)
 - GitHub: [https://github.com/XYRU10](https://github.com/XYRU10)
 
+## Plans for improvments
+- will be adding more in-depth and detailed designs
+- will be working more on interactive features and pop-ups w/ animations
+- add more details on projects that I am working on, and projects that I am planning to work on.
+- more details about my experience and skills
